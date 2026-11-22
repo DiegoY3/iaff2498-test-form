@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TEST FORM — IAFF Local 2498</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Serif:wght@600;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="wrap">
+    <form class="sheet" id="exposure-form" novalidate>
+      <header class="hero">
+        <img class="logo" src="assets/iaff_primary_logo.png" width="160" height="160" alt="International Association of Fire Fighters logo">
+        <div class="hero-text">
+          <div class="local-name">Local 2498</div>
+          <div class="jurisdiction">York, Poquoson, JCC and City of Williamsburg</div>
+          <div class="profession">Professional Firefighters, Paramedics and Dispatchers</div>
+          <div class="affiliations">AFL/CIO/CLC-NFPA, VPCC, VPFF</div>
+          <h1 class="doc-title">TEST FORM</h1>
+        </div>
+        <div class="rules" aria-hidden="true"><div class="red"></div></div>
+      </header>
+
+      <p class="test-note">Temporary test copy — not the official Local 2498 form.</p>
+      <p class="intro">Your Union is continuing to stress the importance of documenting <strong>ALL</strong> injuries and exposures. This form is available at the union office or check with any of your executive board officers. Under the “Cancer Presumption/Communicable Disease” and “Heart and Lung Bill” it is <strong>EXTREMELY</strong> important to document <strong>ALL</strong> exposures. After filling out the form, mail it to your local’s office or give it to one of your local’s executive board members. This document will be filed with your permanent record at the office and on the computer filing system.</p>
+
+      <h2 class="section-title">Personal Toxic Encounter Record</h2>
+
+      <div class="grid g-name">
+        <div>
+          <label class="lbl" for="full_name">Full Name:</label>
+          <input type="text" id="full_name" name="full_name" autocomplete="name" maxlength="200">
+        </div>
+        <div>
+          <label class="lbl" for="todays_date">Today’s Date:</label>
+          <input type="text" id="todays_date" name="todays_date" inputmode="numeric" placeholder="MM/DD/YYYY" maxlength="40" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr;">
+        <div>
+          <label class="lbl" for="home_address">Home Address:</label>
+          <input type="text" id="home_address" name="home_address" autocomplete="street-address" maxlength="300">
+        </div>
+      </div>
+
+      <div class="grid g-contact">
+        <div>
+          <label class="lbl" for="telephone">Telephone Number:</label>
+          <input type="tel" id="telephone" name="telephone" autocomplete="tel" maxlength="40">
+        </div>
+        <div>
+          <label class="lbl" for="email">Email Address:</label>
+          <input type="email" id="email" name="email" autocomplete="email" maxlength="120">
+        </div>
+      </div>
+
+      <div class="grid g-three">
+        <div>
+          <label class="lbl" for="station">Station:</label>
+          <input type="text" id="station" name="station" maxlength="40">
+        </div>
+        <div>
+          <label class="lbl" for="shift">Shift:</label>
+          <input type="text" id="shift" name="shift" maxlength="40">
+        </div>
+        <div>
+          <label class="lbl" for="iaff_member_number">IAFF Member #:</label>
+          <input type="text" id="iaff_member_number" name="iaff_member_number" maxlength="40">
+        </div>
+      </div>
+
+      <div class="grid g-datetime">
+        <div>
+          <label class="lbl" for="encounter_date">Toxic Exposure Encounter Date:</label>
+          <input type="text" id="encounter_date" name="encounter_date" inputmode="numeric" placeholder="MM/DD/YYYY" maxlength="40">
+        </div>
+        <div>
+          <label class="lbl" for="encounter_time">Time:</label>
+          <input type="text" id="encounter_time" name="encounter_time" placeholder="HH:MM" maxlength="40">
+        </div>
+      </div>
+
+      <div class="grid g-two">
+        <div>
+          <label class="lbl" for="nfirs_incident_number">NFIRS Incident Number:</label>
+          <input type="text" id="nfirs_incident_number" name="nfirs_incident_number" maxlength="60">
+        </div>
+        <div>
+          <label class="lbl" for="injury_report_number">Injury Report #:</label>
+          <input type="text" id="injury_report_number" name="injury_report_number" maxlength="60">
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr;">
+        <div>
+          <label class="lbl" for="incident_address">Incident Address:</label>
+          <input type="text" id="incident_address" name="incident_address" maxlength="300">
+        </div>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr; margin-bottom: 0.7rem;">
+        <div>
+          <label class="lbl" for="hazardous_conditions">Hazardous Conditions Encountered (including all toxins/Diseases encountered):</label>
+          <textarea id="hazardous_conditions" name="hazardous_conditions" maxlength="4000" rows="7"></textarea>
+        </div>
+      </div>
+
+      <div class="time-exposed" style="margin-bottom: 0.4rem;">
+        <label class="lbl" for="total_time_exposed">Total time exposed in contaminated area:</label>
+        <input type="text" id="total_time_exposed" name="total_time_exposed" maxlength="80">
+      </div>
+
+      <div class="rules rule-break" aria-hidden="true"><div class="red"></div></div>
+
+      <div class="grid" style="grid-template-columns: 1fr; margin-bottom: 0.7rem;">
+        <div>
+          <label class="lbl" for="symptoms">Any and all symptoms encountered:</label>
+          <textarea id="symptoms" name="symptoms" maxlength="4000" rows="7"></textarea>
+        </div>
+      </div>
+
+      <div class="grid g-claim">
+        <div>
+          <label class="lbl" for="wc_claim_date">Date Workmen’s Compensation claim filed:</label>
+          <input type="text" id="wc_claim_date" name="wc_claim_date" inputmode="numeric" placeholder="MM/DD/YYYY" maxlength="40">
+        </div>
+        <div>
+          <label class="lbl" for="hospital_physician">Hospital/Physician:</label>
+          <input type="text" id="hospital_physician" name="hospital_physician" maxlength="200">
+        </div>
+      </div>
+
+      <div style="margin: 0.2rem 0 1rem;">
+        <div class="lbl" id="witnesses-label">List as many witnesses as possible:</div>
+        <div class="witness-list" role="group" aria-labelledby="witnesses-label">
+          <div class="witness-row">
+            <span class="witness-num">1.</span>
+            <input type="text" id="witness_1" name="witness_1" maxlength="300" aria-label="Witness 1">
+          </div>
+          <div class="witness-row">
+            <span class="witness-num">2.</span>
+            <input type="text" id="witness_2" name="witness_2" maxlength="300" aria-label="Witness 2">
+          </div>
+          <div class="witness-row">
+            <span class="witness-num">3.</span>
+            <input type="text" id="witness_3" name="witness_3" maxlength="300" aria-label="Witness 3">
+          </div>
+          <div class="witness-row">
+            <span class="witness-num">4.</span>
+            <input type="text" id="witness_4" name="witness_4" maxlength="300" aria-label="Witness 4">
+          </div>
+        </div>
+      </div>
+
+      <div class="sig-block">
+        <div class="lbl" id="emp-sig-label">Employee Signature:</div>
+        <button type="button" class="sig-open" id="employee_signature_open" aria-labelledby="emp-sig-label" aria-describedby="emp-sig-hint">
+          <img class="sig-preview-img" id="employee_signature_preview" alt="Employee signature preview" hidden>
+          <span class="sig-preview-typed" id="employee_signature_preview_typed" hidden></span>
+          <span class="sig-placeholder" id="employee_signature_placeholder">Tap to sign</span>
+        </button>
+        <div class="sig-tools">
+          <div class="typed">
+            <label class="lbl" for="employee_signature_typed" style="font-weight:500;">Or type your name</label>
+            <input type="text" id="employee_signature_typed" name="employee_signature_typed" maxlength="120" autocomplete="off" aria-labelledby="emp-sig-label">
+          </div>
+          <button type="button" id="employee_signature_clear">Clear signature</button>
+        </div>
+        <p class="sig-hint" id="emp-sig-hint">Tap the box to draw a signature, or type your name as an alternative.</p>
+      </div>
+
+      <div class="sig-block">
+        <div class="lbl" id="sup-sig-label">Supervisor Signature:</div>
+        <button type="button" class="sig-open" id="supervisor_signature_open" aria-labelledby="sup-sig-label" aria-describedby="sup-sig-hint">
+          <img class="sig-preview-img" id="supervisor_signature_preview" alt="Supervisor signature preview" hidden>
+          <span class="sig-preview-typed" id="supervisor_signature_preview_typed" hidden></span>
+          <span class="sig-placeholder" id="supervisor_signature_placeholder">Tap to sign</span>
+        </button>
+        <div class="sig-tools">
+          <div class="typed">
+            <label class="lbl" for="supervisor_signature_typed" style="font-weight:500;">Or type your name</label>
+            <input type="text" id="supervisor_signature_typed" name="supervisor_signature_typed" maxlength="120" autocomplete="off" aria-labelledby="sup-sig-label">
+          </div>
+          <button type="button" id="supervisor_signature_clear">Clear signature</button>
+        </div>
+        <p class="sig-hint" id="sup-sig-hint">Tap the box to draw a signature, or type your name as an alternative.</p>
+      </div>
+
+      <section class="lower">
+        <div>
+          <div class="lbl">Mail to:</div>
+          <div class="mail-addr">
+            IAFF Local 2498<br>
+            P.O. Box 1308<br>
+            Yorktown, VA 23692
+          </div>
+        </div>
+        <div>
+          <p class="instructions-intro">This should be entered into the members’ folder following the actions listed below:</p>
+          <div class="copies-head">Three Copies should be made:</div>
+          <ol class="copies">
+            <li>Hard Copy (original) to members union office folder</li>
+            <li>Hard Copy (copy) returned to member with date entered and which officer entered the report.</li>
+            <li>Digital copy made and stored on electronic member file located at union office.</li>
+          </ol>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="button" class="btn btn-send" id="btn-send">Send to Local 2498</button>
+        <button type="button" class="btn btn-save" id="btn-save">Save Exposure Form</button>
+        <button type="button" class="btn btn-print" id="btn-print">Print</button>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </div>
+      <input type="text" id="website" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="privacy">This form is filled out on your device. Save and Print stay on your device. Send to Local 2498 emails the filled PDF only to the Local’s union office. You do not enter a destination email. The saved PDF is the same fillable Local 2498 form and can be opened in any PDF editor.</p>
+
+      <footer class="pagefoot">
+        <span>Updated 02/27/2017&nbsp;&nbsp;&nbsp;RWW</span>
+        <span>IAFF Local 2498</span>
+      </footer>
+      <div class="redbar" aria-hidden="true"></div>
+    </form>
+  </div>
+
+
+  <div id="sig-overlay" class="sig-overlay" hidden role="dialog" aria-modal="true" aria-labelledby="sig-overlay-title">
+    <div class="sig-overlay-header">
+      <h2 id="sig-overlay-title">Sign here</h2>
+      <p class="sig-rotate-hint" id="sig-rotate-hint">Turn your phone sideways for more room</p>
+      <div class="sig-overlay-rules" aria-hidden="true">
+        <div class="red"></div>
+      </div>
+    </div>
+    <div class="sig-stage" id="sig-stage">
+      <div class="sig-guides" aria-hidden="true">
+        <div class="sig-baseline-row">
+          <span class="sig-x">X</span>
+          <span class="sig-line"></span>
+        </div>
+        <span class="sig-here">Sign here</span>
+      </div>
+      <canvas id="sig-overlay-canvas" tabindex="0" aria-label="Signature drawing area"></canvas>
+    </div>
+    <div class="sig-overlay-actions">
+      <button type="button" id="sig-btn-clear">Clear</button>
+      <button type="button" id="sig-btn-cancel">Cancel</button>
+      <button type="button" class="sig-btn-done" id="sig-btn-done">Done</button>
+    </div>
+  </div>
+
+  <script src="assets/pdf-lib.min.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
