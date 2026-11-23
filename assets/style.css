@@ -36,7 +36,11 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { font-size: 16px; }
+html {
+  font-size: 16px;
+  color-scheme: light;
+}
+:root { color-scheme: light; }
 
 html, body { max-width: 100%; }
 
@@ -265,6 +269,10 @@ input:focus, textarea:focus, .sig-open:focus-visible {
   font-style: italic;
   font-weight: 600;
 }
+.sig-open,
+.sig-open .sig-preview-img {
+  color-scheme: light;
+}
 .sig-open .sig-preview-img {
   display: block;
   max-height: 5.3rem;
@@ -274,6 +282,7 @@ input:focus, textarea:focus, .sig-open:focus-visible {
   object-fit: contain;
   object-position: left center;
   pointer-events: none;
+  background-color: transparent;
 }
 .sig-open .sig-preview-img[hidden],
 .sig-open .sig-preview-typed[hidden],
@@ -330,6 +339,8 @@ input:focus, textarea:focus, .sig-open:focus-visible {
   min-height: 100%;
   background: var(--cream);
   color: var(--ink);
+  color-scheme: light;
+  forced-color-adjust: none;
   padding:
     env(safe-area-inset-top, 0px)
     env(safe-area-inset-right, 0px)
@@ -385,7 +396,8 @@ html.sig-signing, html.sig-signing body {
   flex: 1 1 auto;
   position: relative;
   margin: 0.7rem 0.85rem;
-  background: var(--paper);
+  background: #FFFFFF;
+  color-scheme: light;
   border: 1.2px solid var(--navy);
   border-radius: 2px;
   min-height: 0;
@@ -397,7 +409,8 @@ html.sig-signing, html.sig-signing body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 0;
+  /* Above the canvas so the gray X / Sign here line stay visible on the white pad. */
+  z-index: 2;
 }
 .sig-baseline-row {
   position: absolute;
@@ -441,6 +454,8 @@ html.sig-signing, html.sig-signing body {
   touch-action: none;
   cursor: crosshair;
   display: block;
+  background-color: #FFFFFF;
+  color-scheme: light;
 }
 
 .sig-overlay-actions {

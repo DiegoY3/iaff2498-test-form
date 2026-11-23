@@ -34,15 +34,23 @@
     return el ? (el.value || "").trim() : "";
   }
 
+  function isInkPixel(r, g, b, a) {
+    if (a < 20) return false;
+    // Treat near-white (the pad fill) as background so the exported PNG
+    // stays transparent and does not stamp a black or white box into the PDF.
+    return (0.2126 * r + 0.7152 * g + 0.0722 * b) < 240;
+  }
+
   function cropInk(source) {
     const w = source.width, h = source.height;
     if (!w || !h) return null;
-    const ctx = source.getContext("2d");
-    const data = ctx.getImageData(0, 0, w, h).data;
+    const srcCtx = source.getContext("2d");
+    const data = srcCtx.getImageData(0, 0, w, h).data;
     let minx = w, miny = h, maxx = -1, maxy = -1;
     for (let y = 0; y < h; y++) {
       for (let x = 0; x < w; x++) {
-        if (data[(y * w + x) * 4 + 3] > 20) {
+        const i = (y * w + x) * 4;
+        if (isInkPixel(data[i], data[i + 1], data[i + 2], data[i + 3])) {
           if (x < minx) minx = x;
           if (y < miny) miny = y;
           if (x > maxx) maxx = x;
@@ -60,7 +68,22 @@
     const tmp = document.createElement("canvas");
     tmp.width = cw;
     tmp.height = ch;
-    tmp.getContext("2d").drawImage(source, minx, miny, cw, ch, 0, 0, cw, ch);
+    const tctx = tmp.getContext("2d");
+    const out = tctx.createImageData(cw, ch);
+    const od = out.data;
+    for (let y = 0; y < ch; y++) {
+      for (let x = 0; x < cw; x++) {
+        const si = ((miny + y) * w + (minx + x)) * 4;
+        const di = (y * cw + x) * 4;
+        if (isInkPixel(data[si], data[si + 1], data[si + 2], data[si + 3])) {
+          od[di] = 0;
+          od[di + 1] = 0;
+          od[di + 2] = 0;
+          od[di + 3] = data[si + 3];
+        }
+      }
+    }
+    tctx.putImageData(out, 0, 0);
     return tmp;
   }
 
@@ -87,7 +110,7 @@
     const ctx = canvas.getContext("2d");
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, cssW, cssH);
-    ctx.fillStyle = "#1a1d23";
+    ctx.fillStyle = "#000000";
     ctx.textBaseline = "middle";
     ctx.font = '58px "Pinyon Script", "Homemade Apple", cursive';
     ctx.fillText(t, 10, cssH * 0.58);
@@ -134,8 +157,17 @@
     ctx.lineWidth = lineWidthFor(cssH || stage.getBoundingClientRect().height || 200);
     ctx.lineCap = "round";
     ctx.lineJoin = "round";
-    ctx.strokeStyle = "#1a1d23";
-    ctx.fillStyle = "#1a1d23";
+    ctx.strokeStyle = "#000000";
+    ctx.fillStyle = "#000000";
+  }
+
+  function fillPadWhite() {
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.globalCompositeOperation = "source-over";
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
   }
 
   function lockScroll() {
@@ -212,7 +244,7 @@
   function redrawAll() {
     const cssW = storedCssW, cssH = storedCssH;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    fillPadWhite();
     const dpr = Math.max(window.devicePixelRatio || 1, 1);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     applyStrokeStyle(cssH);
@@ -233,6 +265,7 @@
     canvas.height = Math.floor(cssH * dpr);
     canvas.style.width = cssW + "px";
     canvas.style.height = cssH + "px";
+    fillPadWhite();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     applyStrokeStyle(cssH);
 
@@ -345,7 +378,7 @@
     lastMid = null;
     drawing = false;
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    fillPadWhite();
     const dpr = Math.max(window.devicePixelRatio || 1, 1);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     applyStrokeStyle(storedCssH);
